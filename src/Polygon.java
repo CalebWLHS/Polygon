@@ -117,10 +117,17 @@ public class Polygon {
      * @param numberOfSides desired number of sides
      *
      */
-    public void setNumSides(int numberOfSides){
+    public void setNumSides(int numberOfSides) {
+        triedInvalidMutator = false;
+        if (numberOfSides >= 3) {
         this.numberOfSides = numberOfSides;
         calculatePerimeter();
         calculateArea();
+        }
+        else{
+        numberOfSides = 3;
+        triedInvalidMutator = true;
+        }
     }
 
     /**
@@ -128,9 +135,16 @@ public class Polygon {
      * @param sideLength desired side length
      */
     public void setSideLength(double sideLength){
-        this.sideLength = sideLength;
-        calculatePerimeter();
-        calculateArea();
+        triedInvalidMutator = false;
+        if(sideLength > 0){
+            this.sideLength = sideLength;
+            calculatePerimeter();
+            calculateArea();
+        }
+        else{
+            triedInvalidMutator = true;
+            this.sideLength = 1;
+        }
     }
 
     /**
@@ -140,8 +154,11 @@ public class Polygon {
         DecimalFormat df = new DecimalFormat("#.###");
         calculateArea();
         calculatePerimeter();
-        if(!shapeType.equals("")) {
+        if(isInvalid == false) {
             return "Your shape is a " + shapeType + " and it has " + numberOfSides + " sides. \nIt has a side length of " + sideLength + ". \nIt has a perimeter of " + df.format(perimeter) + " units and an area of " + df.format(area) + " units.";
+        }
+        else if(triedInvalidMutator == true){
+            return "One of the mutators sets an incorrect value. The incorrect value has been set to a default value";
         }
         else{
             return "One of the variables you put in was invalid. Your polygon was given a default of 3 sides, was named \"triangle\", and each side has a length of 1.0 units";
