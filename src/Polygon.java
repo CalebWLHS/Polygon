@@ -15,6 +15,7 @@ public class Polygon {
     private String shapeType;
     private double perimeter;
     private double area;
+    DecimalFormat df = new DecimalFormat("#.###");
     /**
      * Default Constructor that assigns the numberOfSides to 3, sideLength to 1.0 and shapeType to Triangle
      */
@@ -34,17 +35,9 @@ public class Polygon {
      */
     public Polygon(int numberOfSides, double sideLength, String shapeType){
         isInvalid = false;
-        if(numberOfSides >= 3){
+        if(numberOfSides >= 3 && sideLength >0){
             this.numberOfSides = numberOfSides;
             this.shapeType = shapeType;
-        }
-        else{
-            this.shapeType = "Triangle";
-            this.numberOfSides = 3;
-            this.sideLength = 1;
-            isInvalid = true;
-        }
-        if(sideLength >0){
             this.sideLength = sideLength;
         }
         else{
@@ -54,6 +47,7 @@ public class Polygon {
             isInvalid = true;
         }
     }
+
 
     /**
      * @return returns the int variable numberOfSides of the polygon
@@ -80,28 +74,34 @@ public class Polygon {
      * @return returns the perimeter of the polygon
      */
     public double getPerimeter(){
-        return perimeter;
+        return calculatePerimeter();
     }
 
     /**
      * @return returns the area of the polygon
      */
     public double getArea(){
-        return area;
+         return calculateArea();
     }
 
     /**
      * Method that multiplies the int variable numberOfSides and double variable sideLength to get the Perimeter
      */
-    public void calculatePerimeter(){
+    public double calculatePerimeter(){
         perimeter = (numberOfSides * sideLength);
+        perimeter =  Math.round((perimeter*1000));
+        return perimeter/1000;
     }
 
     /**
      * Method that finds the area of a defined Polygon
      */
-    public void calculateArea(){
+    public double calculateArea(){
         area = ((numberOfSides*sideLength*(sideLength/(2*Math.tan((Math.PI/numberOfSides)))))/2);
+
+        area = Math.round((area*1000));
+        return area/1000;
+
 
     }
 
@@ -109,7 +109,7 @@ public class Polygon {
      * Allows the user to change the shape type
      * @param shapeType new shape type
      */
-    public void setShapeType(String shapeType){
+    public void setShapeName(String shapeType){
         this.shapeType = shapeType;
     }
     /**
@@ -125,7 +125,6 @@ public class Polygon {
         calculateArea();
         }
         else{
-        numberOfSides = 3;
         triedInvalidMutator = true;
         }
     }
@@ -143,7 +142,6 @@ public class Polygon {
         }
         else{
             triedInvalidMutator = true;
-            this.sideLength = 1;
         }
     }
 
@@ -151,14 +149,13 @@ public class Polygon {
      *@return Prints the number of sides, the side length, the shape type, the perimeter and the area (to three decimal places)
      */
     public String toString(){
-        DecimalFormat df = new DecimalFormat("#.###");
         calculateArea();
         calculatePerimeter();
         if(isInvalid == false) {
             return "Your shape is a " + shapeType + " and it has " + numberOfSides + " sides. \nIt has a side length of " + sideLength + ". \nIt has a perimeter of " + df.format(perimeter) + " units and an area of " + df.format(area) + " units.";
         }
         else if(triedInvalidMutator == true){
-            return "One of the mutators sets an incorrect value. The incorrect value has been set to a default value";
+            return "One of the mutators sets an incorrect value. The incorrect value has not been changed.";
         }
         else{
             return "One of the variables you put in was invalid. Your polygon was given a default of 3 sides, was named \"triangle\", and each side has a length of 1.0 units";

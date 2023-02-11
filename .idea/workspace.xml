@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20f2cf7c-b96a-4f19-9d0d-770acc62e8be" name="Changes" comment="">
+    <list default="true" id="20f2cf7c-b96a-4f19-9d0d-770acc62e8be" name="Changes" comment="added validation checks">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Polygon/Polygon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Polygon/Polygon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Polygon/PolygonTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Polygon/PolygonTester.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Polygon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PolygonTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PolygonTester.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +30,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ToolWindowBuild.ShowToolbar": "false"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -38,6 +43,21 @@
       <option name="presentableId" value="Default" />
       <updated>1675880421783</updated>
     </task>
+    <task id="LOCAL-00001" summary="added validation checks">
+      <created>1675927611779</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675927611779</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added validation checks">
+      <created>1675927747991</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1675927747991</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -50,5 +70,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added validation checks" />
+    <option name="LAST_COMMIT_MESSAGE" value="added validation checks" />
   </component>
 </project>
